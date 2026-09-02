@@ -14,14 +14,14 @@ associés et un résumé des acquis.
 
 | # | Module | Contenu |
 |---|--------|---------|
-| 01 | [Python](./01-python) | Bases du langage, structures de données |
+| 01 | [Python](./01-python) | Bases du langage, structures de données, pandas |
 | 02 | [Algorithmes](./02-algo) | Logique algorithmique, compléxité |
 | 03 | [Git](./03-git) | Bases, Versioning, workflow collaboratif |
 | 04 | [Agilité](./04-agile) | Méthodes Agile, gestion de projet |
 | 05 | [Système / Linux](./05-systeme-linux) | Commandes Linux, tâches planifiées (cron) |
-| 06 | [Développement Web](./06-dev-web) | Bases du dev web, utilisation d'un LLM |
-| 07 | [BDD](./07-bdd) | Bases de données relationnelles |
-| 08 | [DataViz](./08-dataviz) | Visualisation de données |
+| 06 | [Développement Web](./06-dev-web) | Bases du dev web, utilisation d'un LLM, Flask |
+| 07 | [BDD](./07-bdd) | Bases de données relationnelles, sqlalchemy |
+| 08 | [DataViz](./08-dataviz) | Visualisation de données (matplotlib, seaborn, plotly, Power BI) |
 | 09 | [Extraction de données](./09-extract-data) | Scraping, API, ETL |
 | 10 | [Statistiques & Probabilités](./10-stats-proba) | Statistiques descriptives, tests d'hypothèses |
 | 11 | [Machine Learning](./11-ml) | Régression, classification, clustering, séries temporelles |
