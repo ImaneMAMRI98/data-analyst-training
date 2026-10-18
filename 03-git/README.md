@@ -30,4 +30,4 @@ Module d'une journée sur le versionnement de code avec **Git** et le travail co
 - Alternatives à GitHub : GitLab, Bitbucket
 
 ## Fichiers
-- `git_memo_des_commandes.odt` : mémo des commandes Git
+- `git_memo_des_commandes` : mémo des commandes Git
