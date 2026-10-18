@@ -1,0 +1,123 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: #caf3ca;
+    margin-bottom: 30px;
+}
+
+h1 {
+    text-align: center;
+    font-family: cursive;
+    font-size: 4em;
+    color: #003300;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1b880d;
+}
+
+ul li {
+  float: right;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #111111;
+}
+
+.entree {
+    padding: 40px;
+    text-align: center;
+    font-size: 1.8em;
+    text-decoration: none;
+
+}
+.entree a {
+    text-decoration: none;
+    color: #111111;
+}
+.entree:hover {
+    text-decoration: underline;
+    
+}
+.contenue  {
+    overflow: hidden;
+      display: block;
+  text-align: center;
+
+}
+.track {
+    display: flex;
+    width: fit-content;
+    animation: scroll 10s linear infinite;
+}
+
+.contenue img {
+    width: 1000px;
+    margin: 20px
+
+}
+@keyframes scroll {
+    from { transform : translateX(0);}
+    to { transform: translateX(-50%);}
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #caf3ca;
+}
+
+
+
+
+
+  
+  .galerie {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    justify-content: center;
+}
+
+.card {
+    width: 280px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #f9fff9;
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card p {
+    padding: 14px;
+    font-family: cursive;
+    font-size: 0.85em;
+    color: #003300;
+    line-height: 1.6;
+    background-color: #f0fdf0;
+    border-top: 3px solid #1b880d;
+}
