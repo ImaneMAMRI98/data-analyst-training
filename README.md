@@ -26,10 +26,7 @@ associés et un résumé des acquis.
 | 10 | [Statistiques & Probabilités](./10-stats-proba) | Statistiques descriptives, tests d'hypothèses |
 | 11 | [Machine Learning](./11-ml) | Régression, classification, clustering, séries temporelles |
 | 12 | [BI](./12-bi) | Datawarehouse (ODS/staging/core), dbt, schéma en étoile, Power BI |
-| 13 | [GP (Gestion de Projet)](./13-gp) | Gestion de projet |
-| 14 | [Cloud](./14-cloud) | Services cloud |
-| 15 | [Big Data](./15-bigdata) | Traitement de données massives |
-| 16 | [Deep Learning](./16-deep-learning) | Réseaux de neurones |
+| 13 | [Deep Learning](./16-deep-learning) | Réseaux de neurones |
 
 ## 🛠️ Stack technique
 
