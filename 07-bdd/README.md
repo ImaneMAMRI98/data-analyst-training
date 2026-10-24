@@ -45,7 +45,7 @@ Module de 6 jours autour d'un projet fil rouge : la base de données **NumCity**
 PostgreSQL · SQL · DBeaver · Looping (Merise) · Python · psycopg2 · pandas · matplotlib · SQLAlchemy · folium
 
 ## Fichiers
-*(à adapter selon ce que tu déposes dans le dossier)*
+
 - Mémo : types de bases de données, théorème CAP, installation, sécurité
 - Schéma NumCity : dictionnaire de données, MCD, MLD
 - Scripts SQL : création et insertion de la base
