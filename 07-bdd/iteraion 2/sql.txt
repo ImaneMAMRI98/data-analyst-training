@@ -1,0 +1,109 @@
+CREATE TABLE Citoyen(
+   User_id VARCHAR(50),
+   User_email VARCHAR(50) NOT NULL,
+   User_mdp VARCHAR(50) NOT NULL,
+   User_name VARCHAR(50) NOT NULL,
+   PRIMARY KEY(User_id),
+   UNIQUE(User_email)
+);
+
+CREATE TABLE Categorie(
+   Categorie_id VARCHAR(50),
+   Categorie_nom VARCHAR(50) NOT NULL,
+   PRIMARY KEY(Categorie_id),
+   UNIQUE(Categorie_nom)
+);
+
+CREATE TABLE Zone(
+   Zone_id VARCHAR(50),
+   Zone_nom VARCHAR(50),
+   PRIMARY KEY(Zone_id)
+);
+
+CREATE TABLE Lieu(
+   Lieu_id VARCHAR(50),
+   Lieu_latitude DECIMAL(9,6) NOT NULL,
+   Lieu_longtitude DECIMAL(9,6) NOT NULL,
+   Zone_id VARCHAR(50),
+   Categorie_id VARCHAR(50) NOT NULL,
+   PRIMARY KEY(Lieu_id),
+   FOREIGN KEY(Zone_id) REFERENCES Zone(Zone_id),
+   FOREIGN KEY(Categorie_id) REFERENCES Categorie(Categorie_id)
+);
+
+CREATE TABLE Demande(
+   Demande_id VARCHAR(50),
+   Demande_type VARCHAR(20) NOT NULL,
+   Demande_description TEXT,
+   Demande_date TIMESTAMP NOT NULL,
+   Lieu_id VARCHAR(50) NOT NULL,
+   User_id VARCHAR(50) NOT NULL,
+   PRIMARY KEY(Demande_id),
+   FOREIGN KEY(Lieu_id) REFERENCES Lieu(Lieu_id),
+   FOREIGN KEY(User_id) REFERENCES Citoyen(User_id)
+);
+
+
+
+
+
+
+-- ============================================================================
+-- 1. INSERTION DANS LES TABLES INDÉPENDANTES
+-- ============================================================================
+
+-- Insertion des Catégories
+INSERT INTO Categorie (Categorie_id, Categorie_nom) VALUES
+('CAT-FONT', 'Fontaine à eau'),
+('CAT-PARK', 'Parking vélos'),
+('CAT-TOIL', 'Toilettes publiques');
+
+-- Insertion des Zones (Quartiers de NumCity)
+INSERT INTO Zone (Zone_id, Zone_nom) VALUES
+('ZONE-CENTRE', 'Centre-Ville historique'),
+('ZONE-GARE', 'Quartier de la Gare'),
+('ZONE-PARC', 'Secteur Parc Floral');
+
+-- Insertion des Citoyens
+INSERT INTO Citoyen (User_id, User_email, User_mdp, User_name) VALUES
+('CIT-001', 'lucas.martin@email.fr', 'motdepasse99', 'Lucas Martin'),
+('CIT-002', 'lea.r@email.fr', 'secretPass45', 'Léa Rouvière'),
+('CIT-003', 'amine.d@email.fr', 'securite2026!', 'Amine Diallo');
+
+
+-- ============================================================================
+-- 2. INSERTION DANS LES TABLES DÉPENDANTES
+-- ============================================================================
+
+-- Insertion des Lieux (Liés à une Zone et une Catégorie)
+INSERT INTO Lieu (Lieu_id, Lieu_latitude, Lieu_longtitude, Zone_id, Categorie_id) VALUES
+('LIEU-001', 44.558225, 4.750512, 'ZONE-GARE', 'CAT-PARK'),     -- Un parking vélo à la gare
+('LIEU-002', 44.561100, 4.748900, 'ZONE-CENTRE', 'CAT-FONT'),   -- Une fontaine au centre-ville
+('LIEU-003', 44.555400, 4.752100, 'ZONE-PARC', 'CAT-TOIL'),     -- Des toilettes au parc
+('LIEU-004', 44.559000, 4.751000, NULL, 'CAT-FONT');            -- Une fontaine hors-zone (teste ton 0,1 !)
+
+-- Insertion des Demandes (Liées directement à un Citoyen et un Lieu)
+INSERT INTO Demande (Demande_id, Demande_type, Demande_description, Demande_date, Lieu_id, User_id) VALUES
+('DEM-001', 'Proposition', 'Nouveau parking vélo installé ce matin.', '2026-06-15 09:30:00', 'LIEU-001', 'CIT-001'),
+('DEM-002', 'Modification', 'Signalement : la fontaine ne fonctionne plus.', '2026-06-16 14:15:00', 'LIEU-002', 'CIT-003'),
+('DEM-003', 'Proposition', 'Demande d''ajout des sanitaires du parc.', '2026-06-18 11:00:00', 'LIEU-003', 'CIT-002');
+
+
+
+
+
+
+SELECT 
+    D.Demande_id, 
+    D.Demande_type, 
+    D.Demande_description, 
+    D.Demande_date,
+    C.User_name AS Citoyen,
+    C.User_email,
+    L.Lieu_id,
+    L.Lieu_latitude,
+    L.Lieu_longtitude
+FROM Demande D
+JOIN Citoyen C ON D.User_id = C.User_id
+JOIN Lieu L ON D.Lieu_id = L.Lieu_id
+ORDER BY D.Demande_date DESC;
