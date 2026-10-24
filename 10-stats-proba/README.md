@@ -38,7 +38,7 @@ Module de 9 jours sur les bases de la statistique appliquée à la data science 
 Python · pandas · NumPy · Matplotlib · seaborn · SciPy · statsmodels · Jupyter
 
 ## Notebooks
-*(à adapter selon tes fichiers)*
+
 - EDA Gapminder
 - Séries temporelles Air Passengers
 - Projet RTE éCO2mix
